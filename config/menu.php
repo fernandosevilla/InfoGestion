@@ -8,7 +8,7 @@ return [
     ],
     [
         'text' => 'Listado Clientes',
-        'icon' => 'fas fa-tachometer-alt',
+        'icon' => 'fas fa-yin-yang',
         'route' => 'dashboard',
         'can' => ['ver-clientes'],
     ],

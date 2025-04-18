@@ -7,15 +7,19 @@
 @foreach ($menu as $item)
     @if (isset($item['type']) && $item['type'] === 'header')
         @canany($item['can'])
-            <li class="px-2 text-xs text-gray-400 uppercase font-semibold mt-4">{{ $item['text'] }}</li>
+            <li class="px-2 pt-6 text-xs font-semibold tracking-widest text-orange-600 uppercase dark:text-orange-400">
+                {{ $item['text'] }}
+            </li>
         @endcanany
     @else
         @canany($item['can'] ?? [])
             <li>
-                <a href="{{ route($item['route']) }}"
-                   class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
-                    <i class="{{ $item['icon'] ?? 'fas fa-circle' }} w-5 h-5 text-gray-500"></i>
-                    <span class="ms-3">{{ $item['text'] }}</span>
+                <a href="{{ isset($item['route']) ? route($item['route']) : '#' }}"
+                   class="flex items-center px-4 py-2 text-sm text-gray-800 hover:bg-[#d9d9d9] transition-all
+                        duration-150 rounded-lg dark:text-gray-200 dark:hover:bg-[#3e3e3e]">
+
+                    <i class="{{ $item['icon'] ?? 'fas fa-circle' }} w-4 h-4 mr-3"></i>
+                    <span class="truncate">{{ $item['text'] }}</span>
                 </a>
             </li>
         @endcanany

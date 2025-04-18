@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>@yield('title', 'Panel de Administración')</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicons/favicon.png') }}">
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
@@ -26,7 +28,7 @@
         <aside id="separator-sidebar"
             class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
             aria-label="Sidebar">
-            <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+            <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-[#262626]">
                 <ul class="space-y-2 font-medium">
                     <x-sidebar />
                 </ul>
