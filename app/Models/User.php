@@ -22,6 +22,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'telefono',
+        'extension',
+        'departamento_id',
     ];
 
     /**
@@ -45,5 +48,37 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    // Relaciones
+
+    public function departamento()
+    {
+        return $this->belongsTo(Departamento::class);
+    }
+
+    public function avisosAtendidos()
+    {
+        return $this->hasMany(Aviso::class, 'usuario_atiende_id');
+    }
+
+    public function partesResponsables()
+    {
+        return $this->hasMany(ParteTrabajo::class, 'usuario_responsable_id');
+    }
+
+    public function tareas()
+    {
+        return $this->hasMany(TareaParte::class, 'usuario_id');
+    }
+
+    public function inventariosCreados()
+    {
+        return $this->hasMany(Inventario::class, 'tecnico_alta_id');
+    }
+
+    public function inventariosRevisados()
+    {
+        return $this->hasMany(Inventario::class, 'tecnico_revision_id');
     }
 }
