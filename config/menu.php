@@ -24,9 +24,9 @@ return [
         'can' => ['ver-clientes']
     ],
     [
-        'text' => 'Usuarios',
+        'text' => 'Departamentos',
         'icon' => 'fas fa-users',
-        'route' => 'profile.update',
-        'can' => ['ver-clientes'],
+        'can' => ['ver-departamentos'],
+        'route' => 'departamentos.index',
     ],
 ];
