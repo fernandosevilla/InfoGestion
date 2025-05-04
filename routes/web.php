@@ -17,4 +17,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::middleware(['auth','can:ver-departamentos'])->group(function () {
+    Route::view('/departamentos','departamentos.index')
+    ->name('departamentos.index');
+});
+
 require __DIR__.'/auth.php';
