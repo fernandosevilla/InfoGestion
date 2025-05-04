@@ -50,9 +50,9 @@ El objetivo de este proyecto es disponer de una herramienta/plataforma donde cua
    ```bash
    php artisan key:generate
 
-5. **Migrar la base de datos**  
+5. **Migrar la base de datos y cargar los seeders**  
    ```bash
-   php artisan migrate
+   php artisan migrate --seed
 
 6. **Iniciar el servidor de desarrollo**  
    ```bash
