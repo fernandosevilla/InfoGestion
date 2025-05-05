@@ -25,8 +25,14 @@ return [
     ],
     [
         'text' => 'Departamentos',
-        'icon' => 'fas fa-users',
+        'icon' => 'fas fa-store-alt',
         'can' => ['ver-departamentos'],
         'route' => 'departamentos.index',
+    ],
+    [
+        'text' => 'Empleados',
+        'icon' => 'fas fa-users',
+        'can' => ['ver-empleados'],
+        'route' => 'empleados.index',
     ],
 ];
