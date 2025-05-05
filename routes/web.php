@@ -22,4 +22,9 @@ Route::middleware(['auth','can:ver-departamentos'])->group(function () {
     ->name('departamentos.index');
 });
 
+Route::middleware(['auth','can:ver-empleados'])->group(function () {
+    Route::view('/empleados','empleados.index')
+    ->name('empleados.index');
+});
+
 require __DIR__.'/auth.php';
