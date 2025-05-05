@@ -24,7 +24,9 @@
                 <thead class="bg-gray-50 dark:bg-[#262626]">
                     <tr>
                         <th class="px-6 py-3 font-semibold uppercase">Nombre</th>
-                        <th class="px-6 py-3 font-semibold uppercase">Acciones</th>
+                        @canany(['editar-departamentos', 'eliminar-departamentos'])
+                            <th class="px-6 py-3 font-semibold uppercase">Acciones</th>
+                        @endcanany
                     </tr>
                 </thead>
                 <tbody id="cuerpoTabla">
@@ -33,20 +35,24 @@
                             class="border-b border-gray-200 dark:border-[#3e3e3e] hover:bg-gray-100 dark:hover:bg-[#3e3e3e]">
                             <td class="px-6 py-2 font-medium">{{ $d->nombre }}</td>
                             <td class="px-6 py-2 space-x-2">
-                                <button wire:click="abrirModal({{ $d->id }})"
-                                    class="px-3 py-1 text-sm font-medium
-                                           bg-gray-100 text-gray-700 border border-gray-200 rounded
-                                           hover:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-gray-500
-                                           dark:bg-[#3e3e3e] dark:text-gray-100 dark:border-[#444444] dark:hover:bg-[#444444]">
+                                @canany(['editar-departamentos'])
+                                    <button wire:click="abrirModal({{ $d->id }})"
+                                        class="px-3 py-1 text-sm font-medium
+                                               bg-gray-100 text-gray-700 border border-gray-200 rounded
+                                               hover:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-gray-500
+                                               dark:bg-[#3e3e3e] dark:text-gray-100 dark:border-[#444444] dark:hover:bg-[#444444]">
                                     Editar
                                 </button>
-                                <button wire:click="confirmarEliminar({{ $d->id }})"
-                                    class="px-3 py-1 text-sm font-medium
-                                           bg-red-100 text-red-600 border border-red-200 rounded
-                                           hover:bg-red-200 focus:outline-none focus:ring-1 focus:ring-red-500
-                                           dark:bg-[#3e3e3e] dark:text-red-400 dark:border-[#444444] dark:hover:bg-[#444444]">
+                                @endcanany
+                                @canany(['eliminar-departamentos'])
+                                    <button wire:click="confirmarEliminar({{ $d->id }})"
+                                        class="px-3 py-1 text-sm font-medium
+                                               bg-red-100 text-red-600 border border-red-200 rounded
+                                               hover:bg-red-200 focus:outline-none focus:ring-1 focus:ring-red-500
+                                               dark:bg-[#3e3e3e] dark:text-red-400 dark:border-[#444444] dark:hover:bg-[#444444]">
                                     Eliminar
                                 </button>
+                                @endcanany
                             </td>
                         </tr>
                     @empty
@@ -68,11 +74,13 @@
 
 
     {{-- Botón Nuevo --}}
+    @canany(['crear-departamentos'])
     <div class="mt-4 flex justify-center">
         <button wire:click="abrirModal()" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
             Nuevo departamento
         </button>
     </div>
+    @endcanany
 
     {{-- MODAL CREAR/EDITAR --}}
     <div

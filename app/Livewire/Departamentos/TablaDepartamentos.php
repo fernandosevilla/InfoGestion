@@ -43,7 +43,7 @@ class TablaDepartamentos extends Component
      */
     public function render()
     {
-        $departamentos = Departamento::orderBy('created_at','desc')
+        $departamentos = Departamento::orderBy('created_at', 'desc')
             ->paginate($this->numPorPagina);
 
         return view('livewire.departamentos.tabla-departamentos', compact('departamentos'));
