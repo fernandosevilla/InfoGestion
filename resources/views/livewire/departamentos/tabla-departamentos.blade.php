@@ -91,7 +91,11 @@
                 <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4">
                     {{ $idAEditar ? 'Editar departamento' : 'Crear departamento' }}
                 </h2>
-                <input wire:model.defer="nombre" type="text" placeholder="Nombre del departamento"
+
+                <label for="nombre" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    Nombre
+                </label>
+                <input id="nombre" wire:model.defer="nombre" type="text" placeholder="Nombre del departamento"
                     class="w-full px-4 py-2 border border-gray-300 dark:border-[#3e3e3e]
                            rounded-lg bg-gray-50 dark:bg-[#3e3e3e]
                            text-gray-900 dark:text-gray-100

@@ -114,91 +114,110 @@
             <!-- Cuerpo del formulario -->
             <form class="p-6" wire:submit.prevent="guardar">
                 {{-- Nombre --}}
-                <input wire:model.defer="nombre" type="text" placeholder="Nombre del empleado"
-                    class="w-full px-4 py-2 mb-2 border border-gray-300 dark:border-[#3e3e3e]
-               rounded-lg bg-gray-50 dark:bg-[#3e3e3e]
-               text-gray-900 dark:text-gray-100
-               placeholder-gray-500 dark:placeholder-gray-400
-               focus:outline-none focus:ring-1 focus:ring-gray-500" />
-                @error('nombre')
-                    <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
-                @enderror
+                <div class="mb-2">
+                    <label for="nombre" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        Nombre
+                    </label>
+                    <input id="nombre" wire:model.defer="nombre" type="text" placeholder="Nombre del empleado"
+                        class="w-full px-4 py-2 border border-gray-300 dark:border-[#3e3e3e]
+                            rounded-lg bg-gray-50 dark:bg-[#3e3e3e]
+                            text-gray-900 dark:text-gray-100
+                            placeholder-gray-500 dark:placeholder-gray-400
+                            focus:outline-none focus:ring-1 focus:ring-gray-500" />
+                    @error('nombre') <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
+                </div>
 
                 {{-- Email --}}
-                <input wire:model.defer="email" type="email" placeholder="Email"
-                    class="w-full px-4 py-2 mb-2 border border-gray-300 dark:border-[#3e3e3e]
-               rounded-lg bg-gray-50 dark:bg-[#3e3e3e]
-               text-gray-900 dark:text-gray-100
-               placeholder-gray-500 dark:placeholder-gray-400
-               focus:outline-none focus:ring-1 focus:ring-gray-500" />
-                @error('email')
-                    <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
-                @enderror
+                <div class="mb-2">
+                    <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        Email
+                    </label>
+                    <input id="email" wire:model.defer="email" type="email" placeholder="Email"
+                        class="w-full px-4 py-2 border border-gray-300 dark:border-[#3e3e3e]
+                            rounded-lg bg-gray-50 dark:bg-[#3e3e3e]
+                            text-gray-900 dark:text-gray-100
+                            placeholder-gray-500 dark:placeholder-gray-400
+                            focus:outline-none focus:ring-1 focus:ring-gray-500" />
+                    @error('email') <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
+                </div>
 
                 {{-- Teléfono y Extensión en la misma fila --}}
                 <div class="grid grid-cols-2 gap-2 mb-2">
                     {{-- Teléfono --}}
-                    <input wire:model.defer="telefono" type="text" placeholder="Teléfono"
-                        class="w-full px-4 py-2 border border-gray-300 dark:border-[#3e3e3e]
-                   rounded-lg bg-gray-50 dark:bg-[#3e3e3e]
-                   text-gray-900 dark:text-gray-100
-                   placeholder-gray-500 dark:placeholder-gray-400
-                   focus:outline-none focus:ring-1 focus:ring-gray-500" />
+                    <div>
+                        <label for="telefono" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                            Teléfono
+                        </label>
+                        <input id="telefono" wire:model.defer="telefono" type="text" placeholder="Teléfono"
+                            class="w-full px-4 py-2 border border-gray-300 dark:border-[#3e3e3e]
+                                rounded-lg bg-gray-50 dark:bg-[#3e3e3e]
+                                text-gray-900 dark:text-gray-100
+                                placeholder-gray-500 dark:placeholder-gray-400
+                                focus:outline-none focus:ring-1 focus:ring-gray-500" />
+                    </div>
+
                     {{-- Extensión --}}
-                    <input wire:model.defer="extension" type="text" placeholder="Extensión"
-                        class="w-full px-4 py-2 border border-gray-300 dark:border-[#3e3e3e]
-                   rounded-lg bg-gray-50 dark:bg-[#3e3e3e]
-                   text-gray-900 dark:text-gray-100
-                   placeholder-gray-500 dark:placeholder-gray-400
-                   focus:outline-none focus:ring-1 focus:ring-gray-500" />
+                    <div>
+                        <label for="extension" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                            Extensión
+                        </label>
+                        <input id="extension" wire:model.defer="extension" type="text" placeholder="Extensión"
+                            class="w-full px-4 py-2 border border-gray-300 dark:border-[#3e3e3e]
+                                rounded-lg bg-gray-50 dark:bg-[#3e3e3e]
+                                text-gray-900 dark:text-gray-100
+                                placeholder-gray-500 dark:placeholder-gray-400
+                                focus:outline-none focus:ring-1 focus:ring-gray-500" />
+                    </div>
                 </div>
-                @error('telefono')
-                    <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
-                @enderror
-                @error('extension')
-                    <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
-                @enderror
+                @error('telefono')   <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
+                @error('extension') <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
 
                 {{-- Departamento --}}
-                <select wire:model.defer="departamento_id"
-                    class="w-full px-4 py-2 mb-2 border border-gray-300 dark:border-[#3e3e3e]
-                   rounded-lg bg-gray-50 dark:bg-[#3e3e3e]
-                   text-gray-900 dark:text-gray-100
-                   focus:outline-none focus:ring-1 focus:ring-gray-500">
-                    <option value="">-- Seleccionar departamento --</option>
-                    @foreach ($departamentos as $d)
-                        <option value="{{ $d->id }}">{{ $d->nombre }}</option>
-                    @endforeach
-                </select>
-                @error('departamento_id')
-                    <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
-                @enderror
+                <div class="mb-2">
+                    <label for="departamento" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        Departamento
+                    </label>
+                    <select id="departamento" wire:model.defer="departamento_id"
+                            class="w-full px-4 py-2 border border-gray-300 dark:border-[#3e3e3e]
+                                rounded-lg bg-gray-50 dark:bg-[#3e3e3e]
+                                text-gray-900 dark:text-gray-100
+                                focus:outline-none focus:ring-1 focus:ring-gray-500">
+                        <option value="">-- Seleccionar departamento --</option>
+                        @foreach ($departamentos as $d)
+                            <option value="{{ $d->id }}">{{ $d->nombre }}</option>
+                        @endforeach
+                    </select>
+                    @error('departamento_id') <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
+                </div>
 
                 {{-- Contraseña --}}
-                <input wire:model.defer="password" type="password" placeholder="Contraseña"
-                    class="w-full px-4 py-2 mb-4 border border-gray-300 dark:border-[#3e3e3e]
-               rounded-lg bg-gray-50 dark:bg-[#3e3e3e]
-               text-gray-900 dark:text-gray-100
-               placeholder-gray-500 dark:placeholder-gray-400
-               focus:outline-none focus:ring-1 focus:ring-gray-500" />
-                @error('password')
-                    <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
-                @enderror
+                <div class="mb-4">
+                    <label for="password" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        Contraseña
+                    </label>
+                    <input id="password" wire:model.defer="password" type="password" placeholder="Contraseña"
+                        class="w-full px-4 py-2 border border-gray-300 dark:border-[#3e3e3e]
+                            rounded-lg bg-gray-50 dark:bg-[#3e3e3e]
+                            text-gray-900 dark:text-gray-100
+                            placeholder-gray-500 dark:placeholder-gray-400
+                            focus:outline-none focus:ring-1 focus:ring-gray-500" />
+                    @error('password') <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
+                </div>
 
                 <!-- Botones -->
                 <div class="flex justify-end space-x-2">
                     <button type="button" wire:click="$set('mostrarModal', false)"
-                        class="px-4 py-2 bg-gray-200 dark:bg-[#3e3e3e] text-gray-800 dark:text-gray-100
-                       rounded-lg hover:bg-gray-300 dark:hover:bg-[#444444]
-                       focus:outline-none focus:ring-2 focus:ring-gray-400">
+                        class="px-4 py-2 bg-gray-200 dark:bg-[#262626] text-gray-800 dark:text-gray-100
+                            rounded-lg hover:bg-gray-300 dark:hover:bg-[#444444]
+                            focus:outline-none focus:ring-2 focus:ring-gray-400">
                         Cancelar
                     </button>
-                    <button type="submit" class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
+                    <button type="submit"
+                        class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
                         {{ $idAEditar ? 'Actualizar' : 'Guardar' }}
                     </button>
                 </div>
             </form>
-
         </div>
     </div>
 
