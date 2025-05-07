@@ -43,6 +43,9 @@ class RolesAndPermissionsSeeder extends Seeder
 
             // SOBRE MATERIALES
             'ver-materiales', 'aniadir-materiales', 'editar-materiales', 'eliminar-materiales',
+
+            // SOBRE ROLES
+            'ver-roles', 'crear-roles', 'editar-roles', 'eliminar-roles',
         ];
 
         foreach ($permisos as $permiso) {

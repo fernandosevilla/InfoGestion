@@ -35,4 +35,10 @@ return [
         'can' => ['ver-empleados'],
         'route' => 'empleados.index',
     ],
+    [
+        'text' => 'Roles',
+        'icon' => 'fas fa-lock',
+        'can' => ['ver-roles'],
+        'route' => 'roles.index',
+    ],
 ];
