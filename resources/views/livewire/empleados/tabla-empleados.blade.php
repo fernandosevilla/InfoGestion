@@ -124,7 +124,9 @@
                             text-gray-900 dark:text-gray-100
                             placeholder-gray-500 dark:placeholder-gray-400
                             focus:outline-none focus:ring-1 focus:ring-gray-500" />
-                    @error('nombre') <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
+                    @error('nombre')
+                        <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 {{-- Email --}}
@@ -138,7 +140,9 @@
                             text-gray-900 dark:text-gray-100
                             placeholder-gray-500 dark:placeholder-gray-400
                             focus:outline-none focus:ring-1 focus:ring-gray-500" />
-                    @error('email') <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
+                    @error('email')
+                        <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 {{-- Teléfono y Extensión en la misma fila --}}
@@ -169,8 +173,12 @@
                                 focus:outline-none focus:ring-1 focus:ring-gray-500" />
                     </div>
                 </div>
-                @error('telefono')   <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
-                @error('extension') <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
+                @error('telefono')
+                    <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
+                @enderror
+                @error('extension')
+                    <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
+                @enderror
 
                 {{-- Departamento --}}
                 <div class="mb-2">
@@ -178,7 +186,7 @@
                         Departamento
                     </label>
                     <select id="departamento" wire:model.defer="departamento_id"
-                            class="w-full px-4 py-2 border border-gray-300 dark:border-[#3e3e3e]
+                        class="w-full px-4 py-2 border border-gray-300 dark:border-[#3e3e3e]
                                 rounded-lg bg-gray-50 dark:bg-[#3e3e3e]
                                 text-gray-900 dark:text-gray-100
                                 focus:outline-none focus:ring-1 focus:ring-gray-500">
@@ -187,7 +195,29 @@
                             <option value="{{ $d->id }}">{{ $d->nombre }}</option>
                         @endforeach
                     </select>
-                    @error('departamento_id') <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
+                    @error('departamento_id')
+                        <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                {{-- Rol --}}
+                <div class="mb-2">
+                    <label for="rol" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        Rol
+                    </label>
+                    <select id="rol" wire:model.defer="rol"
+                        class="w-full px-4 py-2 border border-gray-300 dark:border-[#3e3e3e]
+                               rounded-lg bg-gray-50 dark:bg-[#3e3e3e]
+                               text-gray-900 dark:text-gray-100
+                               focus:outline-none focus:ring-1 focus:ring-gray-500">
+                        <option value="">-- Seleccionar rol --</option>
+                        @foreach ($roles as $r)
+                            <option value="{{ $r->name }}">{{ $r->name }}</option>
+                        @endforeach
+                    </select>
+                    @error('rol')
+                        <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 {{-- Contraseña --}}
@@ -201,7 +231,9 @@
                             text-gray-900 dark:text-gray-100
                             placeholder-gray-500 dark:placeholder-gray-400
                             focus:outline-none focus:ring-1 focus:ring-gray-500" />
-                    @error('password') <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
+                    @error('password')
+                        <p class="text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <!-- Botones -->
@@ -212,8 +244,7 @@
                             focus:outline-none focus:ring-2 focus:ring-gray-400">
                         Cancelar
                     </button>
-                    <button type="submit"
-                        class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
+                    <button type="submit" class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
                         {{ $idAEditar ? 'Actualizar' : 'Guardar' }}
                     </button>
                 </div>

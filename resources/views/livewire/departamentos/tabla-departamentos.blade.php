@@ -46,12 +46,12 @@
                                 @endcanany
                                 @canany(['eliminar-departamentos'])
                                     <button wire:click="confirmarEliminar({{ $d->id }})"
-                                        class="px-3 py-1 text-sm font-medium
-                                               bg-red-100 text-red-600 border border-red-200 rounded
-                                               hover:bg-red-200 focus:outline-none focus:ring-1 focus:ring-red-500
-                                               dark:bg-[#3e3e3e] dark:text-red-400 dark:border-[#444444] dark:hover:bg-[#444444]">
-                                    Eliminar
-                                </button>
+                                            class="px-3 py-1 text-sm font-medium
+                                                bg-red-100 text-red-600 border border-red-200 rounded
+                                                hover:bg-red-200 focus:outline-none focus:ring-1 focus:ring-red-500
+                                                dark:bg-[#3e3e3e] dark:text-red-400 dark:border-[#444444] dark:hover:bg-[#444444]">
+                                        Eliminar
+                                    </button>
                                 @endcanany
                             </td>
                         </tr>
