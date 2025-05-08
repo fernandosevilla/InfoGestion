@@ -50,6 +50,14 @@ class User extends Authenticatable
         ];
     }
 
+    /**
+     * Enviar notificación de restablecimiento de contraseña personalizada.
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new \App\Notifications\ResetPasswordNotification($token));
+    }
+
     // Relaciones
 
     public function departamento()
