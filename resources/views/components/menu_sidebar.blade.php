@@ -25,10 +25,12 @@
         <div class="flex-1 overflow-y-auto px-3 py-4">
             {{-- Logo --}}
             <div class="flex justify-center mb-4">
-                <img src="{{ asset('img/logo_infogestion_modoClaro.webp') }}"
-                    class="h-16 object-contain block dark:hidden" alt="Logo claro">
-                <img src="{{ asset('img/logo_infogestion_modoOscuro.webp') }}"
-                    class="h-16 object-contain hidden dark:block" alt="Logo oscuro">
+                <a href="{{ route('welcome') }}">
+                    <img src="{{ asset('img/logo_infogestion_modoClaro.webp') }}"
+                        class="h-16 object-contain block dark:hidden" alt="Logo claro">
+                    <img src="{{ asset('img/logo_infogestion_modoOscuro.webp') }}"
+                        class="h-16 object-contain hidden dark:block" alt="Logo oscuro">
+                </a>
             </div>
             <hr class="border-t border-gray-300 dark:border-gray-600 mb-4">
 
